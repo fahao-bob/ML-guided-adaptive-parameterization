@@ -1,0 +1,16 @@
+tolerance 8
+filetype pdb
+output 37-098-300.pdb
+add_box_sides 0.1
+seed -1
+
+structure  ff_hybrid.pdb
+  number 50
+  restart_to res.dat 
+  inside box 0. 0. 0. 60. 60. 60.
+end structure
+
+
+
+
+

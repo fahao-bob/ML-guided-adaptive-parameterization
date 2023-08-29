@@ -1,0 +1,19 @@
+;;;;;;;;;;;;;; Include forcefield parameters
+#include "forcefield.itp"
+#include "ff_hybrid_1.0.itp"
+#include "IL.itp"
+;#include "W.itp"
+;#include "PW_min.itp"
+;#include "PW_em.itp"
+
+
+[ system ]
+; Name
+Protein IL water
+
+[ molecules ]
+; Compound        #mols
+Protein            50
+CA                 92
+AN                 92     
+ZZ                 1122

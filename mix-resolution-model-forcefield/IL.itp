@@ -1,0 +1,31 @@
+;Coarse_grained model of CA
+;[J]. AIChE Journal, 2013, 59(7): 2630-2639.
+
+
+; charge scale 1.0
+
+[ moleculetype ]
+; Name         Exclusions
+  CA           1
+
+[ atoms ]
+    1    BQ0     1   CA    B     1  0.6317; 0.6317
+    2    CQ0     1   CA    C     2  0.3083; 0.3083
+
+[bonds]                                                                 
+ ; i     j   funct   length   force const.                               
+   1     2    1       0.46    50000 
+
+
+
+; Coarse_grained model of AN
+; [J]. AIChE Journal, 2013, 59(7): 2630-2639.
+
+[ moleculetype ]
+; Name         Exclusions
+  AN           1
+
+[ atoms ]
+    1    AQ0     1   AN    A     1  -0.94; -0.94 
+
+

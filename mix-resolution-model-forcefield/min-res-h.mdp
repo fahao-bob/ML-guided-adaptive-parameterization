@@ -1,0 +1,58 @@
+;;;;;;; minimization, AA simulation (gromos)
+;;;;;;; Date: 2022-12-6
+
+title		= Minimization	        ; Title of run
+
+; Parameters describing what to do, when to stop and what to save
+integrator	= steep		        ; Algorithm (steep = steepest descent minimization)
+emtol		= 0.0001  	        ; Stop minimization when the maximum force < 10.0 kJ/mol
+emstep          = 0.01                  ; Energy step size (nm)
+nsteps		= 20000	  	; Maximum number of (minimization) steps to perform
+define=  -DPOSRES 
+
+
+; Output the frequency
+nstcomm             =  100               ; frequency for center of mass motion removal
+nstxout             =  5000             ; frequency to write xyz to output trajectory file, the last coordinates are always written
+nstvout             =  0                 ; frequency to write v to output trajectory file, the last coordinates are always written
+nstxtcout           =  5000              ; frequency to write coordinates to xtc trajectory
+xtc_grps            =  system            ; group(s) to write to xtc trajectory, default the whole system is written
+nstfout             =  0                 ; frequency for writing out the force F of all the pulled group
+nstlog              =  5000
+nstenergy           =  5000
+
+
+; Neighbor list
+cutoff-scheme       = Verlet              ; cut-off scheme group: using charge groups, Verlet: particle based cut-offs
+nstlist             = 20                  ; nblist update frequency
+ns-type             = Grid                ; ns algorithm (simple or grid)
+verlet-buffer-drift = 0.005
+rlist               = 1.2                 ; nblist cut-off
+pbc                 = xyz 		  ; Periodic Boundary Conditions
+
+
+
+; Non-bonde term calculations
+;;; ele
+coulombtype              = Reaction-Field
+rcoulomb                 = 1.2
+epsilon_r                = 2.5
+epsilon_rf               = 0
+
+
+;;; vdW
+vdw_type                 = cutoff  
+vdw-modifier             = Potential-shift-verlet
+rvdw                     = 1.2
+
+
+; GENERATE VELOCITIES FOR STARTUP RUN
+gen-vel                  = yes
+gen-temp                 = 300
+gen-seed                 = -1
+
+
+; constraints
+constraints              = H-bonds 
+constraint_algorithm     = Lincs
+

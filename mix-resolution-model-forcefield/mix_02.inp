@@ -1,0 +1,34 @@
+tolerance 4.5
+filetype pdb
+output 37-098-300.pdb
+add_box_sides 0.1
+seed -1
+
+structure  ff_hybrid.pdb
+  number 50
+  restart_from res.dat 
+  inside box 0. 0. 0. 60. 60. 60.
+end structure
+
+
+structure CA.pdb 
+  number 92 
+  inside box 0. 0. 0. 60. 60. 60.
+end structure
+
+
+structure AN.pdb 
+  number 92
+  inside box 0. 0. 0. 60. 60. 60.
+end structure
+
+
+
+structure w.pdb
+  number 1122
+  inside box 0. 0. 0. 60. 60. 60.
+end structure
+
+
+
+
